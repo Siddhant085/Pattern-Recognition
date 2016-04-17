@@ -1,9 +1,10 @@
 #include "library.h"
 
-void writeImage(FILE *fp,pi **a,head *headerInfo,unsigned long w,unsigned long h,pinfo *info,char *name){
+void writeImage(const pi **a,head *headerInfo,pinfo *info,char *name){
+	unsigned long w = headerInfo->width;
+	unsigned long h = headerInfo->height;
 	char padding='\0';
 	info->padding=calcPadding(headerInfo);
-	printf("%d\n",info->padding);
 	char outname[strlen(name)+1];
 	snprintf(outname,sizeof(outname),"%s",name);
 	FILE *fpout;
@@ -23,11 +24,7 @@ void writeImage(FILE *fp,pi **a,head *headerInfo,unsigned long w,unsigned long h
 		fwrite(&padding,1,info->padding,fpout);
 	}
 	char c;
-	//fseek(fp,w*h*3,SEEK_CUR);
-	/*if(!feof(fp)){
-		fread(&c,1,1,fp);
-		fwrite(&c,1,1,fpout);
-	}*/
+	
 	fclose(fpout);
 
 }

@@ -8,13 +8,16 @@ typedef struct header head; //header info
 typedef struct pixel pi;//pixel structure
 typedef struct processingInfo  pinfo;
 
+head * changeHeader(const head *header,long unsigned width,long unsigned height);
+void blackWhite(pi **a,unsigned long w,unsigned long h);
+void slice(head *head,pi **a,pinfo *info,int n);
 void displayDetails(const head *head);
 int findLength(pi **a,int r,int g,int b,unsigned long int width,int length,int error);
 int calcPadding(const head *head);
 void writeHeader(head *head,FILE *fpout);
 head * readHeader(FILE *fp);
 pi ** readImage(unsigned long int w,unsigned long int h,unsigned long int offset,FILE *fp,const pinfo *info);
-void writeImage(FILE *fp,pi **a,head *head,unsigned long w,unsigned long h, pinfo *info,char *name);
+void writeImage(const pi **a,head *head, pinfo *info,char *name);
 pi ** crop(head *h,pi **a,int sx,int sy,int ex,int ey);
 void keepColor(pi **a,int r,int g,int b,unsigned long int width,unsigned long int height);
 
