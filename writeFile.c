@@ -11,8 +11,10 @@ void writeImage(const pi **a,head *headerInfo,pinfo *info,char *name){
 	//ouptup1.bmp
 	fpout=fopen(outname,"wb");
 	//fwrite(headerInfo,1,sizeof(headerInfo),fpout);
+	headerInfo->bfoffset=54;
+	headerInfo->size=40;
 	writeHeader(headerInfo,fpout);
-	fwrite(&padding,1,headerInfo->bfoffset-54,fpout);
+//	fwrite(&padding,1,headerInfo->bfoffset-54,fpout);
 	for(int i=0;i<h;i++){
 		for(int j=0;j<w;j++){
 			//image can be manipulated before writing

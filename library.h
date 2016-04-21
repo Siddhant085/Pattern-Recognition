@@ -8,6 +8,8 @@ typedef struct header head; //header info
 typedef struct pixel pi;//pixel structure
 typedef struct processingInfo  pinfo;
 
+void doTess(char *name);
+void toJpeg(char *name,head *header,pi **a);
 head * changeHeader(const head *header,long unsigned width,long unsigned height);
 void blackWhite(pi **a,unsigned long w,unsigned long h);
 void slice(head *head,pi **a,pinfo *info,int n);

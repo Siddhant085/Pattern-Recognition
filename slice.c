@@ -1,7 +1,7 @@
 #include "library.h"
 
 void slice(head *header,pi **a,pinfo *info,int n){
-	int margin=5;
+	int margin=15;
 	long unsigned sx=margin;
 	long unsigned ex=header->width/n-margin;
 	for (int i = 0; i < n; ++i)
@@ -12,6 +12,7 @@ void slice(head *header,pi **a,pinfo *info,int n){
 		head *newH=changeHeader(header,ex,header->height-2*margin);
 		blackWhite(ab,ex,header->height-2*margin);
 		writeImage(ab,newH,info,name);
+		doTess(name);
 	//	free(ab);
 		sx+=ex+margin;
 	}

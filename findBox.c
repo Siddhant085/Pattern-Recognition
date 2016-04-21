@@ -1,7 +1,7 @@
 #include "library.h"
 
 int findLength(pi **a,int r,int g,int b,unsigned long int width,int length,int error){
-	int ce=10;//error in color values
+	unsigned char ce=50;//error in color values
 	int h=0;
 	int i=length+2*error;
 	int found=0;
@@ -16,24 +16,25 @@ int findLength(pi **a,int r,int g,int b,unsigned long int width,int length,int e
 				j--;
 				assert(j>0 );
 				assert(j<width);
-				char rr=a[k][j].r;
-				char rg=a[k][j].g;
-				char rb=a[k][j].b;
+				unsigned char rr=a[k][j].r;
+				unsigned char rg=a[k][j].g;
+				unsigned char rb=a[k][j].b;
 				
 		//		printf("%d %d\n",(j>i-4*error && !blue),(j>i-length-2*error && blue && j>0));
-		//		printf("%c %c %c %d\n",(char)(r),(char)(rr),rb,ctr);
-				//if((((char)(r-ce))<rr && rr<((char)(r+ce))) && (((char)(b-ce))<rb && rb<((char)(b+ce))) && (((char)(g-ce))<rg && ((char)(rg<g+ce)))){
-				if(rr!=-1 && rg!=-1 && rb !=-1){
+				printf("%u %u %u %d\n",b-ce,(rb),b+ce,ctr);
+				if(((0)<=rr && rr<((r+ce))) && (((b-ce))<rb && rb<((b+ce))) && (((g-ce))<rg && ((rg<g+ce)))){
+				//if(rr!=-1 && rg!=-1 && rb !=-1){
 		//			printf("%c %c %c %d\n",rr,rg,rb,ctr);
 				//	a[k][j].r=a[k][j].b=a[k][j].g=0;
 					ctr++;
 					blue=1;
-					printf("{%d %d %d}, ",(int)rr,(int)rg,(int)rb );
+
+					printf("blue{%u %u %u}, ",(int)rr,(int)rg,(int)rb );
 				}
 				else{
 					blue=0;
 					printf("%c ",'.' );
-					printf("{%d %d %d}, ",(int)rr,(int)rg,(int)rb );
+			//		printf("{%d %d %d}, ",(int)rr,(int)rg,(int)rb );
 					//a[k][j].r=a[k][j].b=a[k][j].g=0;
 				}
 				if(ctr>length-4*error)

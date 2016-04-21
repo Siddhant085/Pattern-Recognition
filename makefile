@@ -1,5 +1,5 @@
-image: main.o readHeader.o readImage.o writeFile.o crop.o findBox.o writeHeader.o calcPadding.o displayDetails.o slice.o changeHeader.o blackWhite.o
-	gcc -o image main.o readHeader.o readImage.o writeFile.o crop.o findBox.o writeHeader.o calcPadding.o displayDetails.o slice.o changeHeader.o blackWhite.o
+image: main.o readHeader.o readImage.o writeFile.o crop.o findBox.o writeHeader.o calcPadding.o displayDetails.o slice.o changeHeader.o blackWhite.o dotess.o
+	gcc -o image main.o readHeader.o readImage.o writeFile.o crop.o findBox.o writeHeader.o calcPadding.o displayDetails.o slice.o changeHeader.o blackWhite.o dotess.o -llept -ltesseract
 main.o: main.c library.h
 	gcc -c main.c
 readHeader.o: readHeader.c library.h
@@ -24,5 +24,7 @@ changeHeader.o:changeHeader.c library.h
 	gcc -c changeHeader.c
 blackWhite.o: blackWhite.c library.h
 	gcc -c blackWhite.c
+dotess.o: dotess.c library.h
+	gcc -c dotess.c
 clean:
-	rm image main.o readHeader.o readImage.o writeFile.o crop.o findBox.o writeHeader.o calcPadding.o displayDetails.o slice.o changeHeader.o blackWhite.o
+	rm image main.o readHeader.o readImage.o writeFile.o crop.o findBox.o writeHeader.o calcPadding.o displayDetails.o slice.o changeHeader.o blackWhite.o toJpeg.o dotess.o
