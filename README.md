@@ -39,3 +39,5 @@ Improvements and Future Enhancements
 3. Use Machine Learning algorithms to find the USN box even if the dimensions of the box are  not provided. 
 4. Use a better tool for handwriting recognition.
 5. Train the tool to achieve accuracy of upto 99%.
+ 
+A write up can be found on my blog at https://siddhant085.blogspot.in. 
