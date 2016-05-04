@@ -23,6 +23,7 @@ void doTess(char *name) {
     TessBaseAPISetImage2(handle, img);
     TessPageSegMode mode= PSM_SINGLE_CHAR;
     TessBaseAPISetPageSegMode(handle,mode);
+    TessBaseAPISetVariable(handle,"tessedit_char_whitelist","0123456789PICSME");
     if(TessBaseAPIRecognize(handle, NULL) != 0)
         die("Error in Tesseract recognition\n");
 

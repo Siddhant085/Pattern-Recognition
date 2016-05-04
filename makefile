@@ -27,4 +27,4 @@ blackWhite.o: blackWhite.c library.h
 dotess.o: dotess.c library.h
 	gcc -c dotess.c
 clean:
-	rm image main.o readHeader.o readImage.o writeFile.o crop.o findBox.o writeHeader.o calcPadding.o displayDetails.o slice.o changeHeader.o blackWhite.o toJpeg.o dotess.o
+	rm image main.o readHeader.o readImage.o writeFile.o crop.o findBox.o writeHeader.o calcPadding.o displayDetails.o slice.o changeHeader.o blackWhite.o dotess.o

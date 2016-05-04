@@ -2,8 +2,9 @@
 
 void slice(head *header,pi **a,pinfo *info,int n){
 	int margin=15;
+	int hmargin=20;
 	long unsigned sx=margin;
-	long unsigned ex=header->width/n-margin;
+	long unsigned ex=header->width/n-hmargin;
 	for (int i = 0; i < n; ++i)
 	{
 		char name[13];
@@ -14,6 +15,6 @@ void slice(head *header,pi **a,pinfo *info,int n){
 		writeImage(ab,newH,info,name);
 		doTess(name);
 	//	free(ab);
-		sx+=ex+margin;
+		sx+=ex+hmargin;
 	}
 }
